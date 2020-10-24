@@ -17,7 +17,7 @@ function f(n){
     let texNuevo = "";
     texNuevo = input.substring(0, n);
 
-    return texNuevo;
+    return texNuevo + "... Leer más";
 }
 
 console.log(f(10))
