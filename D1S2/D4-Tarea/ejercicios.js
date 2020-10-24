@@ -4,6 +4,8 @@
 // en base aun argumento pasado en f(n), donde n es un numero natural > 0
 // además concatenear la frase "... Leer más"
 
+const { forEach } = require("lodash");
+
 
 // Ej.
 /**
@@ -33,6 +35,58 @@ console.log(f(10))
    output =  'Loram ipsam dolar sat amat, consectetar adipiscang elat.'
    ** nótese     ^     ^     ^   ^    ^            ^         ^     ^  
  */
+const input2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`; 
+
+function cambiarUltimaVocal(texto,letra){
+
+const input3 = texto.split(" ");
+let remplace = ""
+let output = "";
+
+for (let i = 0; i < input3.length; i++) {
+  let cont = 0
+  let element = input3[i];
+  
+
+    for (let caracter = element.length - 1; caracter >=0 ; caracter--) {
+      if(cont == 0){
+         if (element[caracter] == "a" || element[caracter] == "e" || element[caracter] == "i" || element[caracter] == "o" || element[caracter] == "u" ){
+
+            remplace += element[caracter].replace(element[caracter],letra)
+ 
+             cont = 1
+
+        } else{
+           remplace += element[caracter]
+          }    
+    }else{
+      remplace += element[caracter]
+    }
+ 
+   } 
+   remplace += " "
+}
+
+const array = remplace.split(" ");
+
+for (let i = 0; i < array.length; i++) {
+
+  let palabra = array[i];
+
+  for (let caracter = palabra.length - 1; caracter >=0 ; caracter--) {
+ output += palabra[caracter];
+}
+output += " "
+}
+return output
+
+}
+// console.log(remplace)
+// console.log(array)
+console.log(input2)
+console.log(cambiarUltimaVocal(input2,"t"))
+
+
 
 // 3. Wolfram Alpha
 // https://www.wolframalpha.com/
