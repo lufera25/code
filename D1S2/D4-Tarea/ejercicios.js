@@ -11,6 +11,16 @@
  * n = 10, f(n)
  *  output = `Lorem ipsu... Leer más`
  */
+const input = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
+
+function f(n){
+    let texNuevo = "";
+    texNuevo = input.substring(0, n);
+
+    return texNuevo;
+}
+
+console.log(f(10))
 
 // 2. vocales
 // dado una cadena de texto de n caracteres
