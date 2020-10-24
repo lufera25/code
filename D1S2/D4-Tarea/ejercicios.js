@@ -22,7 +22,7 @@ function f(n){
     return texNuevo + "... Leer más";
 }
 
-console.log(f(10))
+// console.log(f(10))
 
 // 2. vocales
 // dado una cadena de texto de n caracteres
@@ -36,6 +36,9 @@ console.log(f(10))
    ** nótese     ^     ^     ^   ^    ^            ^         ^     ^  
  */
 const input2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`; 
+
+// console.log(input2)
+// console.log(cambiarUltimaVocal(input2,"t"))
 
 function cambiarUltimaVocal(texto,letra){
 
@@ -83,8 +86,7 @@ return output
 }
 // console.log(remplace)
 // console.log(array)
-console.log(input2)
-console.log(cambiarUltimaVocal(input2,"t"))
+
 
 
 
@@ -113,11 +115,25 @@ console.log(cambiarUltimaVocal(input2,"t"))
 // + -> busca de una conicidencia a ilimitadas
 // [\+|-] -> busca el operador + o el -
 // $ -> estrictamente debe finalizar con un valor
-/*
+
+  function ecuacionLineal(ecuacion){
+
   const pattern = /(?<ax>[0-9]*x)(?<operador>[\+|-])(?<b>[0-9]+)(?<igual>=)(?<c>[0-9]+)$/m;
-  const string = "3x+6=0";
-  const arrayResult = Array.from(string.match(pattern));
+  // const string = "3x+6=0";
+  const arrayResult = Array.from(ecuacion.match(pattern));
+
+  const paso1 = arrayResult[1] + " = " + (arrayResult[2] === "+" ? '-'+arrayResult[3]: arrayResult[3] ) 
+
+  return paso1
+    
+
+  }
+  
+  console.log(ecuacionLineal("3x+6=5"))
+
+
+  // console.log(arrayResult)
 
   // arrayResult = [ '3x+6=0', '3x', '+', '6', '=', '0' ]
-*/
+
 
