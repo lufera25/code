@@ -15,14 +15,14 @@ const { forEach } = require("lodash");
  */
 const input = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
 
-function f(n){
-    let texNuevo = "";
-    texNuevo = input.substring(0, n);
+function f(n) {
+  let texNuevo = "";
+  texNuevo = input.substring(0, n);
 
-    return texNuevo + "... Leer más";
+  return texNuevo + "... Leer más";
 }
 
-// console.log(f(10))
+console.log("Ejercicio 1 :"+f(10))
 
 // 2. vocales
 // dado una cadena de texto de n caracteres
@@ -35,57 +35,57 @@ function f(n){
    output =  'Loram ipsam dolar sat amat, consectetar adipiscang elat.'
    ** nótese     ^     ^     ^   ^    ^            ^         ^     ^  
  */
-const input2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`; 
+const input2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`;
 
-// console.log(input2)
-// console.log(cambiarUltimaVocal(input2,"t"))
+console.log("Ejercicio 2: ")
+console.log("Texto Normal: " + input2)
+console.log("Texto Modificado: " + cambiarUltimaVocal(input2,"t"))
 
-function cambiarUltimaVocal(texto,letra){
+function cambiarUltimaVocal(texto, letra) {
 
-const input3 = texto.split(" ");
-let remplace = ""
-let output = "";
+  const input3 = texto.split(" ");
+  let remplace = ""
+  let output = "";
 
-for (let i = 0; i < input3.length; i++) {
-  let cont = 0
-  let element = input3[i];
-  
+  for (let i = 0; i < input3.length; i++) {
+    let cont = 0
+    let element = input3[i];
 
-    for (let caracter = element.length - 1; caracter >=0 ; caracter--) {
-      if(cont == 0){
-         if (element[caracter] == "a" || element[caracter] == "e" || element[caracter] == "i" || element[caracter] == "o" || element[caracter] == "u" ){
 
-            remplace += element[caracter].replace(element[caracter],letra)
- 
-             cont = 1
+    for (let caracter = element.length - 1; caracter >= 0; caracter--) {
+      if (cont == 0) {
+        if (element[caracter] == "a" || element[caracter] == "e" || element[caracter] == "i" || element[caracter] == "o" || element[caracter] == "u") {
 
-        } else{
-           remplace += element[caracter]
-          }    
-    }else{
-      remplace += element[caracter]
+          remplace += element[caracter].replace(element[caracter], letra)
+
+          cont = 1
+
+        } else {
+          remplace += element[caracter]
+        }
+      } else {
+        remplace += element[caracter]
+      }
+
     }
- 
-   } 
-   remplace += " "
-}
+    remplace += " "
+  }
 
-const array = remplace.split(" ");
+  const array = remplace.split(" ");
 
-for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
 
-  let palabra = array[i];
+    let palabra = array[i];
 
-  for (let caracter = palabra.length - 1; caracter >=0 ; caracter--) {
- output += palabra[caracter];
-}
-output += " "
-}
-return output
+    for (let caracter = palabra.length - 1; caracter >= 0; caracter--) {
+      output += palabra[caracter];
+    }
+    output += " "
+  }
+  return output
 
 }
-// console.log(remplace)
-// console.log(array)
+
 
 
 
@@ -116,20 +116,35 @@ return output
 // [\+|-] -> busca el operador + o el -
 // $ -> estrictamente debe finalizar con un valor
 
-  function ecuacionLineal(ecuacion){
+ecuacionLineal("3x+6=0")
 
-  const pattern = /(?<ax>[0-9]*x)(?<operador>[\+|-])(?<b>[0-9]+)(?<igual>=)(?<c>[0-9]+)$/m;
+function ecuacionLineal(ecuacion) {
+
+  console.log("Ejercicio3 ")
+  console.log("Ecuacion lineal: "+ ecuacion)
+
+  const pattern = /(?<a>[0-9]+)(?<x>[\x])(?<operador>[\+|-])(?<b>[0-9]+)(?<igual>=)(?<c>[0-9]+)$/m;
   // const string = "3x+6=0";
   const arrayResult = Array.from(ecuacion.match(pattern));
 
-  const paso1 = arrayResult[1] + " = " + (arrayResult[2] === "+" ? '-'+arrayResult[3]: arrayResult[3] ) 
+  const paso1 = arrayResult[1] + arrayResult[2] + " = " + (arrayResult[6] > 0 ? arrayResult[6] : "") + (arrayResult[3] === "+" ? '-' + arrayResult[4] :'+' + arrayResult[4])
+  console.log("paso 1: " + paso1);
 
-  return paso1
-    
+  sumaDespeje = eval(arrayResult[6]) + eval(arrayResult[3] === "+" ? '-' + arrayResult[4] : arrayResult[4]);
 
-  }
-  
-  console.log(ecuacionLineal("3x+6=5"))
+  const paso2 = arrayResult[2] + " = " + sumaDespeje + "/" + arrayResult[1];
+
+  console.log("paso 2: " + paso2);
+
+  divisionDespeje = sumaDespeje / eval(arrayResult[1])
+
+  const paso3 = arrayResult[2] + " = " + divisionDespeje
+
+  console.log("paso 3: " + paso3)
+
+
+}
+
 
 
   // console.log(arrayResult)
