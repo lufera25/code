@@ -81,9 +81,10 @@ function cambiarUltimaVocal(texto, letra) {
       output += palabra[caracter];
     }
     output += " ";
-    return output;
+  
 
   }
+  return output;
 
 }
 
