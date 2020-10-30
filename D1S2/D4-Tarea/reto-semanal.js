@@ -29,6 +29,16 @@ intput = [
     id: 3,
     brand: "Nissan",
     model: "Navara",
+  },
+  {
+    id: 4,
+    brand: "HONDA",
+    model: "Civic",
+  },
+  {
+    id: 5,
+    brand: "HONDA",
+    model: "CRV",
   }
 
 ];
